@@ -1,9 +1,9 @@
 extends Node
 class_name PlanetData
 
-var radius = 10
+const RADIUS = 1
 
-const ACCURACY = 8
+const ACCURACY = 80
 
 var inside_color : Dictionary
 var outside_color : Dictionary
@@ -11,4 +11,9 @@ var outside_color : Dictionary
 func _init(color : Color = Color.REBECCA_PURPLE) -> void:
 	for theta in range(0, 360, 360./ACCURACY): 
 		for phi in range(0, 360, 360./ACCURACY):
-			outside_color[Vector3(radius,0,0).rotated(Vector3(0,1,0),cos(theta)).rotated(Vector3(1,0,0), cos(phi))] = color
+			var point : Vector3
+			point.y = sin(deg_to_rad(phi)) * RADIUS
+			point.x = cos(deg_to_rad(theta))*cos(deg_to_rad(phi)) * RADIUS
+			point.z = sin(deg_to_rad(theta))*cos(deg_to_rad(phi)) * RADIUS
+			
+			outside_color[point] = color

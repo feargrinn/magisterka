@@ -7,7 +7,7 @@ script = ExtResource("1_1odxm")
 metadata/_custom_type_script = "uid://d3kkjo8hvd6bf"
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.3937)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.13552)
 current = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
