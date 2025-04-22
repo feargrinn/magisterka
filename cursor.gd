@@ -26,7 +26,7 @@ func _process(_delta: float) -> void:
 	elif Input.is_action_just_pressed("down"): 
 		direction = Vector3i(0, -1, 0)
 	
-	if map.has(tile_position + direction):
+	if direction != Vector3i.ZERO and map.has(tile_position + direction):
 		get_parent().remove_child(self)
 		map[tile_position + direction].add_child(self)
 		tile_position = tile_position + direction
