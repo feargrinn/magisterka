@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ce46b1e0it3uj"]
+
+[ext_resource type="Script" uid="uid://ggb15rcrt28k" path="res://cursor.gd" id="1_fsq4c"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ydl3m"]
+radius = 0.05
+height = 0.1
+radial_segments = 16
+rings = 8
+
+[node name="Cursor" type="MeshInstance3D"]
+mesh = SubResource("SphereMesh_ydl3m")
+script = ExtResource("1_fsq4c")
