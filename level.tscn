@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://iubudc5aonha"]
+
+[ext_resource type="Script" uid="uid://37xgo1wpf7hi" path="res://map_builder.gd" id="1_u52ul"]
+[ext_resource type="Script" uid="uid://daurvugmy8cpp" path="res://camera_rotator.gd" id="2_vonw3"]
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_u52ul")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0)
+
+[node name="Camera_Rotator" type="Node3D" parent="."]
+script = ExtResource("2_vonw3")
+
+[node name="Camera3D" type="Camera3D" parent="Camera_Rotator"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)

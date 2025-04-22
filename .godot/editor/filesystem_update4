@@ -1,9 +1,0 @@
-res://Player.gd
-res://Planet.gd
-res://Rocket.gd
-res://PlanetData.gd
-res://Camera.gd
-res://planet.tscn
-res://voxel.tscn
-res://voxel.gd
-res://Voxel.gd

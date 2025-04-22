@@ -1,6 +1,6 @@
-DirectionalLight3D
-MeshInstance3D
-Planet
-Camera3D
 Node3D
-Camera
+DirectionalLight3D
+Camera3D
+CollisionShape3D
+StaticBody3D
+MeshInstance3D
