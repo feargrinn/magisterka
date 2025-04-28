@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://iubudc5aonha"]
 
-[ext_resource type="Script" uid="uid://37xgo1wpf7hi" path="res://map_builder.gd" id="1_u52ul"]
-[ext_resource type="Script" uid="uid://daurvugmy8cpp" path="res://camera_rotator.gd" id="2_vonw3"]
+[ext_resource type="Script" uid="uid://37xgo1wpf7hi" path="res://game/map/map_builder.gd" id="1_u52ul"]
+[ext_resource type="Script" uid="uid://daurvugmy8cpp" path="res://ui/camera_rotator.gd" id="2_vonw3"]
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_u52ul")
