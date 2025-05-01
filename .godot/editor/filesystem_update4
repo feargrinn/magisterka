@@ -1,4 +1,6 @@
-res://game/creature/creature.tscn
 res://game/map/tile.tscn
-res://game/map/level.tscn
 res://game/map/map_builder.gd
+res://game/map/Tile.gd
+res://game/map/level.tscn
+res://game/map/map.gd
+res://game/player/cursor.gd

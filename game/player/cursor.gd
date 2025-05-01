@@ -2,9 +2,9 @@ extends MeshInstance3D
 class_name Cursor
 
 var tile_position : Vector3i = Vector3i.ZERO
-var map : Dictionary[Vector3i, StaticBody3D]
+var map : Dictionary[Vector3i, Tile]
 
-func _init(map_a : Dictionary[Vector3i, StaticBody3D]) -> void:
+func _init(map_a : Dictionary[Vector3i, Tile]) -> void:
 	mesh = SphereMesh.new()
 	mesh.radius = 0.05
 	mesh.height = 0.1
