@@ -3,15 +3,27 @@ class_name Cursor
 
 var tile_position : Vector3i = Vector3i.ZERO
 var map : Dictionary[Vector3i, Tile]
+var movable : bool = false
 
-func _init(map_a : Dictionary[Vector3i, Tile]) -> void:
-	mesh = SphereMesh.new()
-	mesh.radius = 0.05
-	mesh.height = 0.1
-	map = map_a
-	map[tile_position].add_child(self)
+const axes_scene = preload("res://ui/axis_planes.tscn")
+
+static func new_cursor(a_map : Dictionary[Vector3i, Tile]) -> Cursor:
+	var cursor : Cursor = axes_scene.instantiate()
+	#size?
+	cursor.scale *= Tile.SIZE
+	cursor.position -= Vector3i.ONE * Tile.SIZE/2
+	cursor.map = a_map
+	cursor.movable = true
+	for child : MeshInstance3D in cursor.get_children():
+		var material : StandardMaterial3D = child.get_surface_override_material(0)
+		material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		child.set_surface_override_material(0, material)
+	return cursor
+
 
 func _process(_delta: float) -> void:
+	if not movable:
+		return
 	var direction = Vector3i.ZERO
 	if Input.is_action_just_pressed("back"): 
 		direction = Vector3i(0, 0, 1)

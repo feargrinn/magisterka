@@ -1,18 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://iubudc5aonha"]
+[gd_scene load_steps=3 format=3 uid="uid://iubudc5aonha"]
 
 [ext_resource type="Script" uid="uid://37xgo1wpf7hi" path="res://game/map/map_builder.gd" id="1_u52ul"]
 [ext_resource type="Script" uid="uid://daurvugmy8cpp" path="res://ui/camera_rotator.gd" id="2_vonw3"]
-
-[sub_resource type="QuadMesh" id="QuadMesh_v613y"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p1roe"]
-albedo_color = Color(0.227451, 0.682353, 0.952941, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lm0tu"]
-albedo_color = Color(0.945098, 0.282353, 0.435294, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hnxvw"]
-albedo_color = Color(0.701961, 0.929412, 0.0980392, 1)
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_u52ul")
@@ -22,23 +11,6 @@ script = ExtResource("2_vonw3")
 
 [node name="Camera3D" type="Camera3D" parent="Camera_Rotator"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
-
-[node name="AxisPlanes" type="Node3D" parent="."]
-
-[node name="Z" type="MeshInstance3D" parent="AxisPlanes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 0)
-mesh = SubResource("QuadMesh_v613y")
-surface_material_override/0 = SubResource("StandardMaterial3D_p1roe")
-
-[node name="X" type="MeshInstance3D" parent="AxisPlanes"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.5, 0.5)
-mesh = SubResource("QuadMesh_v613y")
-surface_material_override/0 = SubResource("StandardMaterial3D_lm0tu")
-
-[node name="Y" type="MeshInstance3D" parent="AxisPlanes"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.5, 0, 0.5)
-mesh = SubResource("QuadMesh_v613y")
-surface_material_override/0 = SubResource("StandardMaterial3D_hnxvw")
 
 [node name="Lighting" type="Node3D" parent="."]
 transform = Transform3D(0.984808, 0.173648, 0, -0.17101, 0.969846, -0.173648, -0.0301537, 0.17101, 0.984808, 0, 0, 0)

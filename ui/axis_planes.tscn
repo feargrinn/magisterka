@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4vxqiqaqxqlx"]
+
+[ext_resource type="Script" uid="uid://ggb15rcrt28k" path="res://game/player/cursor.gd" id="1_uqigi"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_v613y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p1roe"]
+resource_local_to_scene = true
+albedo_color = Color(0.227451, 0.682353, 0.952941, 0.501961)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lm0tu"]
+resource_local_to_scene = true
+albedo_color = Color(0.945098, 0.282353, 0.435294, 0.501961)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hnxvw"]
+resource_local_to_scene = true
+albedo_color = Color(0.701961, 0.929412, 0.0980392, 0.501961)
+
+[node name="AxisPlanes" type="MeshInstance3D"]
+script = ExtResource("1_uqigi")
+
+[node name="Z" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 0)
+mesh = SubResource("QuadMesh_v613y")
+surface_material_override/0 = SubResource("StandardMaterial3D_p1roe")
+
+[node name="X" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.5, 0.5)
+mesh = SubResource("QuadMesh_v613y")
+surface_material_override/0 = SubResource("StandardMaterial3D_lm0tu")
+
+[node name="Y" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.5, 0, 0.5)
+mesh = SubResource("QuadMesh_v613y")
+surface_material_override/0 = SubResource("StandardMaterial3D_hnxvw")
