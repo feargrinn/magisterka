@@ -1,14 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://ce46b1e0it3uj"]
+[gd_scene load_steps=8 format=3 uid="uid://ce46b1e0it3uj"]
 
-[ext_resource type="Script" uid="uid://ggb15rcrt28k" path="res://game/player/cursor.gd" id="1_fsq4c"]
+[ext_resource type="Script" uid="uid://ggb15rcrt28k" path="res://game/player/Cursor.gd" id="1_fsq4c"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xw63n"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.682353)
 
 [sub_resource type="BoxMesh" id="BoxMesh_a4035"]
+material = SubResource("StandardMaterial3D_xw63n")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a4035"]
+resource_local_to_scene = true
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.25098)
 
 [sub_resource type="BoxMesh" id="BoxMesh_x1bqc"]
+material = SubResource("StandardMaterial3D_a4035")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x1bqc"]
+resource_local_to_scene = true
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.25098)
 
 [sub_resource type="BoxMesh" id="BoxMesh_xw63n"]
+material = SubResource("StandardMaterial3D_x1bqc")
 
-[node name="Cursor" type="MeshInstance3D"]
+[node name="middle" type="MeshInstance3D"]
 mesh = SubResource("BoxMesh_a4035")
 script = ExtResource("1_fsq4c")
 
