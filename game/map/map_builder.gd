@@ -7,11 +7,11 @@ const CREATURE_AMOUNT : int = 10
 func _ready() -> void:
 	var map : Map = Map.new()
 	map.size = MAP_SIZE
-	add_child(map)
+	add_child(map, true)
 	map.position -= MAP_SIZE/2 * map.CELL_SCALE #centering the map on the screen
-	#map.set_scene_at(Vector3i.ZERO, Cursor.new_cursor(map))
+	var cursor = Cursor.new_cursor(map)
+	map.set_scene_at(MAP_SIZE/2, cursor)
 	
 	for _i in CREATURE_AMOUNT:
 		var creature = Creature2D.new_creature()
-		creature.cell_position = map.get_random_empty_cell()
-		map.set_scene_at(creature.cell_position, creature)
+		map.set_scene_at(map.get_random_empty_cell(), creature)

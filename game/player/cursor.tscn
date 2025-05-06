@@ -1,13 +1,37 @@
-[gd_scene load_steps=3 format=3 uid="uid://ce46b1e0it3uj"]
+[gd_scene load_steps=5 format=3 uid="uid://ce46b1e0it3uj"]
 
 [ext_resource type="Script" uid="uid://ggb15rcrt28k" path="res://game/player/cursor.gd" id="1_fsq4c"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_ydl3m"]
-radius = 0.05
-height = 0.1
-radial_segments = 16
-rings = 8
+[sub_resource type="BoxMesh" id="BoxMesh_a4035"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_x1bqc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_xw63n"]
 
 [node name="Cursor" type="MeshInstance3D"]
-mesh = SubResource("SphereMesh_ydl3m")
+mesh = SubResource("BoxMesh_a4035")
 script = ExtResource("1_fsq4c")
+
+[node name="up" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_x1bqc")
+
+[node name="down" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh = SubResource("BoxMesh_xw63n")
+
+[node name="left" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+mesh = SubResource("BoxMesh_x1bqc")
+
+[node name="right" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = SubResource("BoxMesh_x1bqc")
+
+[node name="front" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+mesh = SubResource("BoxMesh_x1bqc")
+
+[node name="back" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+mesh = SubResource("BoxMesh_x1bqc")

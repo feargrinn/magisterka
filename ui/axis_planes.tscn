@@ -1,6 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4vxqiqaqxqlx"]
-
-[ext_resource type="Script" uid="uid://ggb15rcrt28k" path="res://game/player/cursor.gd" id="1_uqigi"]
+[gd_scene load_steps=5 format=3 uid="uid://c4vxqiqaqxqlx"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_v613y"]
 
@@ -17,7 +15,6 @@ resource_local_to_scene = true
 albedo_color = Color(0.701961, 0.929412, 0.0980392, 0.501961)
 
 [node name="AxisPlanes" type="MeshInstance3D"]
-script = ExtResource("1_uqigi")
 
 [node name="Z" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 0)

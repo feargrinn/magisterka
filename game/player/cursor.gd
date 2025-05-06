@@ -1,28 +1,19 @@
 extends MeshInstance3D
 class_name Cursor
 
-var tile_position : Vector3i = Vector3i.ZERO
+const cursor_scene = preload("res://game/player/cursor.tscn")
+var cell_position : Vector3i
 var map : Map
-var movable : bool = false
 
-const axes_scene = preload("res://ui/axis_planes.tscn")
 
 static func new_cursor(a_map : Map) -> Cursor:
-	var cursor : Cursor = axes_scene.instantiate()
+	var cursor : Cursor = cursor_scene.instantiate()
 	cursor.scale *= a_map.CELL_SCALE
-	cursor.position -= Vector3i.ONE * a_map.CELL_SCALE/2
 	cursor.map = a_map
-	cursor.movable = true
-	for child : MeshInstance3D in cursor.get_children():
-		var material : StandardMaterial3D = child.get_surface_override_material(0)
-		material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-		child.set_surface_override_material(0, material)
 	return cursor
 
 
 func _process(_delta: float) -> void:
-	if not movable:
-		return
 	var direction = Vector3i.ZERO
 	if Input.is_action_just_pressed("back"): 
 		direction = Vector3i(0, 0, 1)
@@ -36,9 +27,6 @@ func _process(_delta: float) -> void:
 		direction = Vector3i(0, 1, 0)
 	elif Input.is_action_just_pressed("down"): 
 		direction = Vector3i(0, -1, 0)
-	
-	if direction != Vector3i.ZERO and map.has(tile_position + direction):
-		#get_parent().remove_child(self)
-		#map[tile_position + direction].add_child(self)
-		tile_position = tile_position + direction
+	if direction != Vector3i.ZERO and map.has_cell_position(cell_position + direction):
+		map.move_scene_at(cell_position, direction)
 		

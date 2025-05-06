@@ -12,7 +12,7 @@ static func new_creature() -> Creature:
 
 func _on_mouse_entered() -> void:
 	var material : StandardMaterial3D = get_child(0).mesh.material
-	print_debug("I is in cell ", cell_position, " my dimensions are ", dimensions)
+	#print_debug("I is in cell ", cell_position, " my dimensions are ", dimensions)
 	material.albedo_color = Color.RED
 
 

@@ -15,15 +15,29 @@ func _ready() -> void:
 	add_child(axes)
 
 func set_scene_at(cell_position : Vector3i, scene : Node3D) -> bool:
-	if AABB(Vector3i.ZERO, size).has_point(cell_position) and !tiles.has(cell_position):
+	if AABB(Vector3i.ZERO, size).has_point(cell_position):
 		tiles[cell_position] = scene
-		add_child(scene, true)
 		scene.position = map_to_local(cell_position)
+		scene.cell_position = cell_position
+		add_child(scene, true)
 		return true
 	return false
 
+func has_cell_position(cell_position : Vector3i) -> bool:
+	return AABB(Vector3i.ZERO, size - Vector3i.ONE).has_point(cell_position)
+
 func get_scene_at(cell_position : Vector3i) -> Node3D:
 	return tiles[cell_position]
+
+func move_scene_at(cell_position : Vector3i, move_by : Vector3i) -> void:
+	print_debug("cell position ", cell_position, " move_by ", move_by)
+	var local_move_by : Vector3 = map_to_local(cell_position + move_by) - map_to_local(cell_position)
+	var scene : Node3D = get_scene_at(cell_position)
+	tiles.erase(cell_position)
+	tiles[cell_position + move_by] = scene
+	scene.cell_position = cell_position + move_by
+	scene.position += local_move_by
+	print_debug("moved: cell position ", scene.cell_position)
 
 func get_random_empty_cell() -> Vector3i:
 	var random_cell = Vector3i.ZERO
