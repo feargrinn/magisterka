@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ce46b1e0it3uj"]
+[gd_scene load_steps=16 format=3 uid="uid://ce46b1e0it3uj"]
 
 [ext_resource type="Script" uid="uid://ggb15rcrt28k" path="res://game/player/Cursor.gd" id="1_fsq4c"]
 
@@ -9,13 +9,12 @@ albedo_color = Color(1, 1, 1, 0.682353)
 [sub_resource type="BoxMesh" id="BoxMesh_a4035"]
 material = SubResource("StandardMaterial3D_xw63n")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a4035"]
-resource_local_to_scene = true
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sn1w1"]
 transparency = 1
 albedo_color = Color(1, 1, 1, 0.25098)
 
-[sub_resource type="BoxMesh" id="BoxMesh_x1bqc"]
-material = SubResource("StandardMaterial3D_a4035")
+[sub_resource type="BoxMesh" id="BoxMesh_tvk6c"]
+material = SubResource("StandardMaterial3D_sn1w1")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x1bqc"]
 resource_local_to_scene = true
@@ -25,13 +24,41 @@ albedo_color = Color(1, 1, 1, 0.25098)
 [sub_resource type="BoxMesh" id="BoxMesh_xw63n"]
 material = SubResource("StandardMaterial3D_x1bqc")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tvk6c"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.25098)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5irx1"]
+material = SubResource("StandardMaterial3D_tvk6c")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5irx1"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.25098)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5na26"]
+material = SubResource("StandardMaterial3D_5irx1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5na26"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.25098)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6a06s"]
+material = SubResource("StandardMaterial3D_5na26")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a4035"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.25098)
+
+[sub_resource type="BoxMesh" id="BoxMesh_x1bqc"]
+material = SubResource("StandardMaterial3D_a4035")
+
 [node name="middle" type="MeshInstance3D"]
 mesh = SubResource("BoxMesh_a4035")
 script = ExtResource("1_fsq4c")
 
 [node name="up" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("BoxMesh_x1bqc")
+mesh = SubResource("BoxMesh_tvk6c")
 
 [node name="down" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
@@ -39,15 +66,15 @@ mesh = SubResource("BoxMesh_xw63n")
 
 [node name="left" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
-mesh = SubResource("BoxMesh_x1bqc")
+mesh = SubResource("BoxMesh_5irx1")
 
 [node name="right" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-mesh = SubResource("BoxMesh_x1bqc")
+mesh = SubResource("BoxMesh_5na26")
 
 [node name="front" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
-mesh = SubResource("BoxMesh_x1bqc")
+mesh = SubResource("BoxMesh_6a06s")
 
 [node name="back" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
