@@ -33,6 +33,7 @@ func _input(event: InputEvent):
 		add_child(BoxSetter.new_boxsetter(cursor.cell_position), true)
 
 func _set_creature_at(cell_position : Vector3i, creature : Creature) -> void:
+	creature.scale *= CELL_SCALE
 	creatures[cell_position] = creature
 	creature.position = map_to_local(cell_position)
 	creature.cell_position = cell_position

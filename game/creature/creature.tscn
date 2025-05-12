@@ -1,19 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cfb4cc3a703sv"]
+[gd_scene load_steps=4 format=3 uid="uid://cfb4cc3a703sv"]
 
 [ext_resource type="Script" uid="uid://8g6qufnklx3" path="res://game/creature/Creature.gd" id="1_jbw1m"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_iobyy"]
-load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.s3tc.ctex"
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iobyy"]
-resource_local_to_scene = true
-albedo_texture = SubResource("CompressedTexture2D_iobyy")
-billboard_mode = 1
-
-[sub_resource type="QuadMesh" id="QuadMesh_iobyy"]
-resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_iobyy")
-size = Vector2(0.1, 0.1)
+[ext_resource type="PackedScene" uid="uid://q7irtcvfolfu" path="res://game/creature/creature.glb" id="2_jbw1m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iobyy"]
 
@@ -21,11 +9,10 @@ size = Vector2(0.1, 0.1)
 script = ExtResource("1_jbw1m")
 
 [node name="creature_mesh" type="MeshInstance3D" parent="."]
-mesh = SubResource("QuadMesh_iobyy")
+
+[node name="creature" parent="creature_mesh" instance=ExtResource("2_jbw1m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.266448, 0, 0.0484795)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 shape = SubResource("BoxShape3D_iobyy")
-
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
