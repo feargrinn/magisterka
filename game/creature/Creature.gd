@@ -9,6 +9,9 @@ static func new_creature() -> Creature:
 	var creature : Creature = creature_scene.instantiate()
 	return creature
 
+func has_dimension(dimension : Vector3i) -> bool:
+	var difference = dimensions - dimension.abs()
+	return difference[difference.min_axis_index()] >= 0
 
 func _on_mouse_entered() -> void:
 	var material : StandardMaterial3D = get_child(0).mesh.material

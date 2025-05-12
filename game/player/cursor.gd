@@ -6,8 +6,8 @@ var cell_position : Vector3i
 var map : Map
 
 const DIRECTIONS : Dictionary = {
-	"back" : Vector3i(0, 0, -1),
-	"front" : Vector3i(0, 0, 1),
+	"front" : Vector3i(0, 0, -1),
+	"back" : Vector3i(0, 0, 1),
 	"left" : Vector3i(-1, 0, 0),
 	"right" : Vector3i(1, 0, 0),
 	"up" : Vector3i(0, 1, 0),

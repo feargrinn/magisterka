@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcnfne652d0ab"]
+
+[ext_resource type="Script" uid="uid://bqspxatxmkx1h" path="res://game/creature/box/BoxSetter.gd" id="1_lx37y"]
+
+[node name="BoxSetter" type="MarginContainer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -65.0
+offset_right = 65.0
+offset_bottom = 31.0
+grow_horizontal = 2
+script = ExtResource("1_lx37y")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="X" type="CheckBox" parent="HBoxContainer"]
+layout_mode = 2
+text = "X"
+
+[node name="Y" type="CheckBox" parent="HBoxContainer"]
+layout_mode = 2
+text = "Y"
+
+[node name="Z" type="CheckBox" parent="HBoxContainer"]
+layout_mode = 2
+text = "Z"
