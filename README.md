@@ -1,2 +1,1 @@
-﻿# magisterka
-https://docs.google.com/document/d/1mmZr9WUYzDZkHfk-LXMV838lgteq4-qkgu806skuEo0/edit?usp=sharing
+wip praca magisterska
