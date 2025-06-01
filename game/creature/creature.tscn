@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfb4cc3a703sv"]
+[gd_scene load_steps=5 format=3 uid="uid://cfb4cc3a703sv"]
 
 [ext_resource type="Script" uid="uid://8g6qufnklx3" path="res://game/creature/Creature.gd" id="1_jbw1m"]
 [ext_resource type="PackedScene" uid="uid://q7irtcvfolfu" path="res://game/creature/creature.glb" id="2_jbw1m"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_0101k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iobyy"]
 
@@ -9,9 +11,9 @@
 script = ExtResource("1_jbw1m")
 
 [node name="creature_mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_0101k")
 
 [node name="creature" parent="creature_mesh" instance=ExtResource("2_jbw1m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.266448, 0, 0.0484795)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)

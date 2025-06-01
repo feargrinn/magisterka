@@ -2,7 +2,7 @@ extends Node3D
 
 const MAP_SIZE : Vector3i = Vector3i.ONE * 10
 
-const CREATURE_DENSITY : float = 0.3
+const CREATURE_DENSITY : float = 0.1
 
 func get_creature_amount() -> int:
 	var possible_amount : int = MAP_SIZE.x * MAP_SIZE.y * MAP_SIZE.z
