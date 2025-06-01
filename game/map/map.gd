@@ -62,9 +62,21 @@ func has_cell_position(cell_position : Vector3i) -> bool:
 func get_scene_at(cell_position : Vector3i) -> Node3D:
 	return creatures[cell_position]
 
+# This shows a cross of width 3x3 (when neighbourhood is 1) on cursor axes
+func _update_creature_visibility(cell_position : Vector3i) -> void:
+	const VISIBILITY_NEIGHBOURHOOD = 1
+	for creature : Creature in creatures.values():
+		var distance : Vector3i = abs(creature.cell_position - cell_position)
+		distance[distance.max_axis_index()] = 0
+		if distance.length_squared() <= VISIBILITY_NEIGHBOURHOOD * 2:
+			creature.show()
+		else:
+			creature.hide()
+
 func set_cursor_at(cell_position : Vector3i):
 	cursor.position = map_to_local(cell_position)
 	cursor.cell_position = cell_position
+	_update_creature_visibility(cell_position)
 
 func get_random_empty_cell() -> Vector3i:
 	var random_cell = Vector3i.ZERO
