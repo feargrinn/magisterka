@@ -39,6 +39,15 @@ func _set_creature_at(cell_position : Vector3i, creature : Creature) -> void:
 	creature.cell_position = cell_position
 	add_child(creature, true)
 
+func _game_finished() -> bool:
+	for creature_position in creatures:
+		if !boxes.has(creature_position):
+			return false
+		else:
+			if boxes[creature_position].dimensions != creatures[creature_position].dimensions:
+				return false
+	return true
+
 func _set_box_at(cell_position : Vector3i, box : Box) -> void:
 	boxes[cell_position] = box
 	box.scale *= CELL_SCALE
@@ -46,6 +55,9 @@ func _set_box_at(cell_position : Vector3i, box : Box) -> void:
 	box.cell_position = cell_position
 	add_child(box, true)
 	setting_box = false
+	if _game_finished():
+		print("You win, good job!")
+		get_tree().quit()
 
 func set_scene_at(cell_position : Vector3i, scene : Node) -> bool:
 	if AABB(Vector3i.ZERO, size).has_point(cell_position):
